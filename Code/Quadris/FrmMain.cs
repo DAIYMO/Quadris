@@ -15,14 +15,20 @@ namespace Quadris
         private const int CELL_WIDTH = 20;
         private const int CELL_HEIGHT = 20;
 
+        private const int NEXT_COLS = 4;
+        private const int NEXT_ROWS = 4;
+
         private const int HELD_BOARD_COLS = 6;
         private const int HELD_BOARD_ROWS = 6;
 
 
         private Label[,] gridControls;
         private Label[,] heldGridControls;
+        private Label[,] nextGridControls;
         private Board board;
         private HeldBoard heldBoard;
+
+        public bool isPressed = false;
 
         private SoundPlayer sndPlayer;
 
@@ -53,9 +59,12 @@ namespace Quadris
             heldBoard = new HeldBoard();
             Piece piece = Piece.GetRandPiece();
             board.ActivePiece = piece;
+            Piece nextPiece = board.GetNextPiece();
+            board.NextActivePiece = nextPiece;
 
             CreateGrid();
             CreateHoldGrid();
+            CreateNextGrid();
             //sndPlayer = new SoundPlayer(Resources.bg_music);
             //sndPlayer.PlayLooping();
         }
@@ -89,6 +98,23 @@ namespace Quadris
                     Label lblCell = MakeGridCell(row, col);
                     holdPanel.Controls.Add(lblCell);
                     heldGridControls[row, col] = lblCell;
+                }
+            }
+        }
+
+        private void CreateNextGrid()
+        {
+            panelNext.Width = CELL_WIDTH * NEXT_COLS + 4;
+            panelNext.Height = CELL_HEIGHT * NEXT_ROWS + 4;
+            nextGridControls = new Label[NEXT_ROWS, NEXT_COLS];
+            panelNext.Controls.Clear();
+            for (int col = 0; col < NEXT_COLS; col++)
+            {
+                for (int row = 0; row < NEXT_ROWS; row++)
+                {
+                    Label lblCell = MakeGridCell(row, col);
+                    panelNext.Controls.Add(lblCell);
+                    nextGridControls[row, col] = lblCell;
                 }
             }
         }
@@ -137,6 +163,24 @@ namespace Quadris
             }    
         }
 
+        private void UpdateNextGrid()
+        {
+            for (int col = 0; col < NEXT_COLS; col++)
+            {
+                for (int row = 0; row < NEXT_ROWS; row++)
+                {
+                    if (board.NextActivePiece.Layout[row, col] == true)
+                    {
+                        nextGridControls[row, col].Image = pieceColorToImgMap[board.NextActivePiece.Color];
+                    }
+                    else
+                    {
+                        nextGridControls[row, col].Image = null;
+                    }
+                }
+            }
+        }
+
         private Label MakeGridCell(int row, int col)
         {
             return new Label()
@@ -155,6 +199,16 @@ namespace Quadris
             board.Update();
             UpdateGrid();
             UpdateHeldGrid();
+            UpdateNextGrid();
+            if (isPressed == true)
+            {
+                tmrFps.Interval = 100;
+            }
+            else
+            {
+                tmrFps.Interval = 500;
+            }
+            isPressed = false;
         }
 
         private void FrmMain_KeyDown(object sender, KeyEventArgs e)
@@ -181,7 +235,13 @@ namespace Quadris
                 case Keys.G:
                     board.ActivePiece = heldBoard.heldPiece;
                     heldBoard.heldPiece = null;
-                    break; 
+                    break;
+                case Keys.Down:
+                    isPressed = true;
+                    break;
+                default:
+                    isPressed = false;
+                    break;
             }
         }
     }
