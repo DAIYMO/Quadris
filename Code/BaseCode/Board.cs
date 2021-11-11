@@ -35,6 +35,7 @@ namespace Quadris {
   public class Board {
     public GridCellInfo[,] Grid { get; private set; }
     public Piece ActivePiece { get; set; }
+    public Piece ShadowPiece { get; set; }
 
     public Board() {
       Grid = new GridCellInfo[24, 10];

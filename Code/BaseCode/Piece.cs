@@ -65,13 +65,13 @@ namespace Quadris {
     public static Piece MakePiece(PieceType type) {
       Piece piece = null;
       switch (type) {
-        case PieceType.L: piece = new Piece("0000010001000110", PieceColor.ORANGE); break;
-        case PieceType.J: piece = new Piece("0000001000100110", PieceColor.BLUE); break;
-        case PieceType.Z: piece = new Piece("0000011000110000", PieceColor.RED); break;
-        case PieceType.S: piece = new Piece("0000011011000000", PieceColor.GREEN); break;
-        case PieceType.I: piece = new Piece("0010001000100010", PieceColor.CYAN); break;
-        case PieceType.T: piece = new Piece("0000001001110000", PieceColor.PURPLE); break;
-        case PieceType.O: piece = new Piece("0000011001100000", PieceColor.YELLOW); break;
+        case PieceType.L: piece = new Piece("0000010001000110", PieceColor.ORANGE); piece.Type = PieceType.L; break;
+        case PieceType.J: piece = new Piece("0000001000100110", PieceColor.BLUE); piece.Type = PieceType.J; break;
+        case PieceType.Z: piece = new Piece("0000011000110000", PieceColor.RED); piece.Type = PieceType.Z; break;
+        case PieceType.S: piece = new Piece("0000011011000000", PieceColor.GREEN); piece.Type = PieceType.S; break;
+        case PieceType.I: piece = new Piece("0010001000100010", PieceColor.CYAN); piece.Type = PieceType.I; break;
+        case PieceType.T: piece = new Piece("0000001001110000", PieceColor.PURPLE); piece.Type = PieceType.T; break;
+        case PieceType.O: piece = new Piece("0000011001100000", PieceColor.YELLOW); piece.Type = PieceType.O; break;
       }
       return piece;
     }
