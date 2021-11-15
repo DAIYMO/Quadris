@@ -146,21 +146,21 @@ namespace Quadris
                 for (int row = 0; row < HELD_BOARD_ROWS - 2; row++)
                 {
                     //GridCellInfo heldCellInfo = heldBoard.HeldGrid[row, col];
-                    if(heldBoard.heldPiece == null)
+                    if (heldBoard.heldPiece == null)
                     {
                         heldGridControls[row + 1, col + 1].Image = null;
                         continue;
                     }
                     if (heldBoard.heldPiece.Layout[row, col] == true)
                     {
-                        heldGridControls[row + 1 , col + 1].Image = pieceColorToImgMap[heldBoard.heldPiece.Color];
+                        heldGridControls[row + 1, col + 1].Image = pieceColorToImgMap[heldBoard.heldPiece.Color];
                     }
                     else
                     {
-                        heldGridControls[row + 1 , col + 1].Image = null;
+                        heldGridControls[row + 1, col + 1].Image = null;
                     }
                 }
-            }    
+            }
         }
 
         private void UpdateNextGrid()
@@ -208,6 +208,7 @@ namespace Quadris
             {
                 tmrFps.Interval = 500;
             }
+            ScoreKeeper.Text = board.Score.ToString();
             isPressed = false;
         }
 
@@ -230,7 +231,7 @@ namespace Quadris
                 case Keys.H:
                     heldBoard.getCurrentActivePiece(board);
                     heldBoard.updateHeldGrid();
-                    board.ActivePiece = Piece.GetRandPiece();
+                    board.ActivePiece = board.NextActivePiece;
                     break;
                 case Keys.G:
                     board.ActivePiece = heldBoard.heldPiece;

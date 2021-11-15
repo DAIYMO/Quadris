@@ -49,6 +49,8 @@ namespace Quadris
 
         public bool IsSettled = false;
 
+        public int Score = 0;
+
         public Board()
         {
             Grid = new GridCellInfo[24, 10];
@@ -301,6 +303,7 @@ namespace Quadris
                             Grid[dropRow, col] = Grid[dropRow - 1, col];
                         }
                     }
+                    Score += 1000;
                     curRow--;
                 }
             }

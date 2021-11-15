@@ -31,6 +31,9 @@ namespace Quadris {
             this.lblNextPiece = new System.Windows.Forms.Label();
             this.holdPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ScoreKeeper = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panBoard
@@ -38,7 +41,7 @@ namespace Quadris {
             this.panBoard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.panBoard.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panBoard.Location = new System.Drawing.Point(289, 165);
-            this.panBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panBoard.Margin = new System.Windows.Forms.Padding(4);
             this.panBoard.Name = "panBoard";
             this.panBoard.Size = new System.Drawing.Size(388, 436);
             this.panBoard.TabIndex = 1;
@@ -54,7 +57,7 @@ namespace Quadris {
             this.panelNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.panelNext.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelNext.Location = new System.Drawing.Point(48, 65);
-            this.panelNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelNext.Margin = new System.Windows.Forms.Padding(4);
             this.panelNext.Name = "panelNext";
             this.panelNext.Size = new System.Drawing.Size(139, 105);
             this.panelNext.TabIndex = 2;
@@ -76,7 +79,7 @@ namespace Quadris {
             this.holdPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.holdPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.holdPanel.Location = new System.Drawing.Point(765, 65);
-            this.holdPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.holdPanel.Margin = new System.Windows.Forms.Padding(4);
             this.holdPanel.Name = "holdPanel";
             this.holdPanel.Size = new System.Drawing.Size(139, 105);
             this.holdPanel.TabIndex = 4;
@@ -94,18 +97,54 @@ namespace Quadris {
             this.label1.Text = "Hold Piece:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(385, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 29);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Score Board";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(390, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Score:";
+            // 
+            // ScoreKeeper
+            // 
+            this.ScoreKeeper.AutoSize = true;
+            this.ScoreKeeper.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.ScoreKeeper.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ScoreKeeper.Location = new System.Drawing.Point(474, 65);
+            this.ScoreKeeper.Name = "ScoreKeeper";
+            this.ScoreKeeper.Size = new System.Drawing.Size(19, 20);
+            this.ScoreKeeper.TabIndex = 8;
+            this.ScoreKeeper.Text = "0";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1027, 848);
+            this.Controls.Add(this.ScoreKeeper);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.holdPanel);
             this.Controls.Add(this.lblNextPiece);
             this.Controls.Add(this.panelNext);
             this.Controls.Add(this.panBoard);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.Text = "Quadris!";
             this.Load += new System.EventHandler(this.FrmMain_Load);
@@ -122,6 +161,9 @@ namespace Quadris {
     private System.Windows.Forms.Label lblNextPiece;
         private System.Windows.Forms.Panel holdPanel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label ScoreKeeper;
     }
 }
 
