@@ -25,6 +25,7 @@ namespace Quadris {
     /// </summary>
     private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panBoard = new System.Windows.Forms.Panel();
             this.tmrFps = new System.Windows.Forms.Timer(this.components);
             this.panelNext = new System.Windows.Forms.Panel();
@@ -135,6 +136,7 @@ namespace Quadris {
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1027, 848);
             this.Controls.Add(this.ScoreKeeper);
             this.Controls.Add(this.label3);
