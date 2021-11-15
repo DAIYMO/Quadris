@@ -49,6 +49,8 @@ namespace Quadris
 
         public bool IsSettled = false;
 
+        public bool GameOver = false;
+
         public int Score = 0;
 
         public Board()
@@ -275,6 +277,11 @@ namespace Quadris
                     {
                         cellInfo.State = CellState.OCCUPIED_PREVIOUSLY;
                     }
+                    if (ActivePiece.GridRow <= 0)
+                    {
+                        GameOver = true;
+                    }
+
                 }
             }
             ActivePiece = NextActivePiece;

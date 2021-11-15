@@ -208,6 +208,10 @@ namespace Quadris
             {
                 tmrFps.Interval = 500;
             }
+            if (board.GameOver)
+            {
+                Application.Exit();
+            }
             ScoreKeeper.Text = board.Score.ToString();
             isPressed = false;
         }
@@ -232,6 +236,8 @@ namespace Quadris
                     heldBoard.getCurrentActivePiece(board);
                     heldBoard.updateHeldGrid();
                     board.ActivePiece = board.NextActivePiece;
+                    board.NextActivePiece = Piece.GetRandPiece();
+                    UpdateNextGrid();
                     break;
                 case Keys.G:
                     board.ActivePiece = heldBoard.heldPiece;
